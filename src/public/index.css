@@ -1,0 +1,138 @@
+:root {
+    --light-black: rgba(54, 54, 54, 1);
+    --orange: rgba(241, 151, 33, 1);
+    --white: rgba(245, 245, 245, 1);
+    --gray: rgba(119, 118, 118, 1);
+}
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-style: normal;
+    font-size: 16px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+}
+
+img {
+    max-width: 100%;
+}
+
+.container {
+    border: 1px solid;
+    width: 100vw;
+    height: 100vh;
+
+    display: grid;
+    grid-template-columns: repeat(5, minmax(280px, 1fr));
+    grid-template-rows: 0.6fr repeat(3, minmax(200px, 1fr)) 0.6fr;
+    gap: 0.7em;
+
+    grid-template-areas: 
+        "nav nav nav nav nav"
+        "item-1 item-2 item-3 item-4 item-5"
+        "item-6 item-7 item-8 item-9 item-10"
+        " item-11 item-12 item-13 item-14 item-15"  
+        "footer footer footer footer footer"  
+    ;
+}
+
+.container .navbar,
+.container .footer {
+    background-color: var(--orange);
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.container .navbar {
+    grid-area: nav;
+    justify-content: space-between;
+}
+
+.container .navbar ul {
+    list-style-type: none;
+}
+
+.container .navbar ul li {
+    width: 8rem;
+    text-align: center;
+    padding: 0.250em;
+}
+
+.container .navbar ul li a {
+    color: var(--white);
+    font-size: 1.385em;
+    text-transform: capitalize;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.container .navbar ul li a:hover {
+    animation: hover-link 2s forwards;
+}
+
+@keyframes hover-link {
+    to {
+        color: var(--gray);
+        font-weight: bold;
+    }
+}
+
+.container .card:nth-child(1) {
+    grid-area: item-1;
+    width: 80%;
+    height: 80%;
+    margin: 0 auto;
+    margin-left: 0.250em;
+    padding: 0.250em;
+}
+
+.container .card a {
+    border: 1px solid var(--light-black);
+    border-radius: 15px;
+    display: block;
+    width: 90%;
+    height: 90%;
+    margin:0 auto;
+    background-image: url('../../assets/login.png');
+    background-image: image-set(
+        url('../../assets/login_x1.png') 1x,
+        url('../../assets/login_x2.png') 2x
+    ) ;
+    background-image: -webkit-image-set(
+        url('../../assets/login_x1.png') 1x,
+        url('../../assets/login_x2.png') 2x
+    );
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    box-shadow: var(--light-black) 0px 2px 5px ;
+}
+
+.container .card .title {
+    text-align: center;
+    height: auto;
+    padding: 0.250em;
+    margin-top: 0.64em;
+    font-size: 1.125em;
+    color: var(--light-black);
+    letter-spacing: 0.1em;
+}
+
+.container .footer {
+    grid-area: footer;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.container .footer p {
+    color: var(--white);
+    letter-spacing: 0.1em;
+}
